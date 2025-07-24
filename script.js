@@ -25,7 +25,7 @@ const dados = {
   modulo5: [
     { nome: "(28/04/2025)-Teste Segurança", link: "#" },
     { nome: "Teste Carga", link: "https://vimeo.com/1090711667?share=copy" },
-    { nome: "(28/04/2025)-Ferramentas de Teste", link: "#" }
+    { nome: "Ferramentas de Teste", link: "https://docs.google.com/document/d/1Zp91V0fOi4djIRy6ciQkxsM1achTd60z85_cIRRXHT4/edit?usp=sharing" }
   ]
 };
 
