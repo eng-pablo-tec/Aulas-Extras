@@ -9,7 +9,7 @@ const dados = {
   ],
   modulo3: [
     { nome: "(28/04/2025)-Modelagem de Sistemas", link: "#" },
-    { nome: "Scrum", link: "https://docs.google.com/document/d/1fYewaUDnIkU_wQmb9K0Su85xndyiXfiD69_FSxy8_4c/edit?usp=sharing" },
+    { nome: "Scrum e SOLID", link: "https://docs.google.com/document/d/1fYewaUDnIkU_wQmb9K0Su85xndyiXfiD69_FSxy8_4c/edit?usp=sharing" },
     { nome: "(28/04/2025)-Documentação e Planejamento", link: "#" },
     { nome: "(28/04/2025)-Boas Práticas e Carreira", link: "#" },
     { nome: "(28/04/2025)-Integracao POKEAPI", link: "#" }
