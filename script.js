@@ -17,7 +17,7 @@ const dados = {
   modulo4: [
     { nome: "SELENIUM JAVASCRIPT 1", link: "https://drive.google.com/drive/folders/1KlSodjBM_EDbMpJz5-_qrcZRfiHTc8UA?usp=sharing" },
     { nome: "SELENIUM JAVASCRIPT 2", link: "https://docs.google.com/document/d/1Ef7iYP_aH5STHaTyONp6K7ZEX3XRm5IeFT-Z7yFbeVQ/edit?usp=sharing" },
-    { nome: "(28/04/2025)-Cypress", link: "#" },
+    { nome: "(28/04/2025)-Cypress", link: "https://vimeo.com/1106156238?share=copy" },
     { nome: "(28/04/2025)-Postman Automatizado", link: "#" },
     { nome: "(28/04/2025)-Cucumber", link: "#" },
     { nome: "(28/04/2025)-Jest", link: "#" }
