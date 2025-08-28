@@ -1,368 +1,109 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <title>Painel de Testes Completo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal de Testes & QA</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
+      background: #f4f6f9;
       display: flex;
+      flex-direction: column;
+      align-items: center;
       height: 100vh;
     }
 
-    /* Painel esquerdo (botões) */
-    #menu {
-      width: 260px;
-      background: #2c3e50;
+    header {
+      width: 100%;
+      padding: 15px;
+      text-align: center;
+      background: #1e293b;
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      width: 90%;
+      flex: 1;
+      align-content: start;
+      overflow-y: auto; /* se tiver muitos cards, habilita rolagem */
+    }
+
+    .card {
       color: white;
       padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      overflow-y: auto;
-    }
-
-    #menu button {
-      background: #34495e;
-      color: white;
-      border: none;
-      padding: 10px;
+      justify-content: space-between;
+      min-height: 120px;
+      transition: transform 0.2s;
       cursor: pointer;
-      text-align: left;
-      font-size: 14px;
-      border-radius: 4px;
-    }
-
-    #menu button:hover {
-      background: #1abc9c;
-    }
-
-    /* Área direita (conteúdos) */
-    #conteudo {
-      flex-grow: 1;
-      padding: 20px;
-      background: #ecf0f1;
-      overflow-y: auto;
-    }
-
-    .tela {
-      display: none;
-    }
-
-    .tela.ativa {
-      display: block;
-    }
-
-    .tela h2 {
-      color: #2c3e50;
-      margin-bottom: 12px;
-    }
-
-    .tela h3 {
-      color: #34495e;
-      margin-top: 20px;
-      margin-bottom: 6px;
-    }
-
-    .tela p {
-      margin: 5px 0;
-      line-height: 1.3;
-    }
-
-    .tela a {
-      display: inline-block;
-      margin-top: 10px;
-      color: #2980b9;
       text-decoration: none;
     }
-    .tela a:hover {
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Paleta de cores variada */
+    .blue { background: #3b82f6; }
+    .green { background: #10b981; }
+    .yellow { background: #f59e0b; }
+    .red { background: #ef4444; }
+    .purple { background: #8b5cf6; }
+    .pink { background: #ec4899; }
+    .teal { background: #14b8a6; }
+
+    .title {
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+
+    .link {
+      font-size: 12px;
+      margin-top: auto;
+      opacity: 0.9;
       text-decoration: underline;
     }
-
-    .tela ul {
-      padding-left: 20px;
-    }
-
-    .tela ul li {
-      margin-bottom: 8px;
-    }
-
-    /* Alteração para tema verde escuro */
-body {
-  background-color: #1b2a1b; /* verde bem escuro */
-  color: #cdeac0; /* verde claro para texto */
-}
-
-#menu {
-  background: #154215; /* verde escuro */
-  color: #cdeac0;
-}
-
-#menu button {
-  background: #1e4721; /* verde médio */
-  color: #cdeac0;
-  border: none;
-}
-
-#menu button:hover {
-  background: #2ecc71; /* verde vibrante para hover */
-  color: #0b3d0b;
-}
-
-#conteudo {
-  background: #234723; /* verde escuro claro */
-  color: #cdeac0;
-}
-
-.tela h2, .tela h3 {
-  color: #a8d5a8;
-}
-
-.tela a {
-  color: #81c784;
-}
-.tela a:hover {
-  color: #66bb6a;
-}
-
   </style>
 </head>
 <body>
+  <header>📊 Portal de Testes & QA</header>
+  <div class="container" id="cards"></div>
 
-  <!-- Painel esquerdo -->
-  <div id="menu">
-    <!-- Seus botões antigos -->
-    <button onclick="mostrarTela('29-04-teoria')">(29/04/2025) - Teoria Fundamentos de Teste de Sistemas</button>
-    <button onclick="mostrarTela('28-04-modelagem')">(28/04/2025) - Modelagem de Sistemas</button>
-    <button onclick="mostrarTela('28-04-scrum')">(28/04/2025) - Scrum</button>
-    <button onclick="mostrarTela('html-css-1')">HTML CSS 1</button>
-    <button onclick="mostrarTela('29-04-unitarios')">(29/04/2025) - Testes Unitários</button>
-    <button onclick="mostrarTela('selenium-js-1')">SELENIUM JAVASCRIPT 1</button>
-    <button onclick="mostrarTela('selenium-js-2')">SELENIUM JAVASCRIPT 2</button>
-    <button onclick="mostrarTela('28-04-pokeapi')">(28/04/2025) - Integracao POKEAPI</button>
-    <button onclick="mostrarTela('28-04-cypress')">(28/04/2025) - Cypress</button>
-    <button onclick="mostrarTela('28-04-seguranca')">(28/04/2025) - Teste Segurança</button>
-    <button onclick="mostrarTela('teste-carga')">Teste Carga</button>
-    <button onclick="mostrarTela('28-04-cucumber')">(28/04/2025) - Cucumber</button>
-    <button onclick="mostrarTela('28-04-jest')">(28/04/2025) - Jest</button>
-    <button onclick="mostrarTela('28-04-postman')">(28/04/2025) - Postman Automatizado</button>
-    <button onclick="mostrarTela('28-04-tecnicas')">(28/04/2025) - Técnicas de Teste</button>
-    <button onclick="mostrarTela('28-04-documentacao')">(28/04/2025) - Documentação e Planejamento</button>
-    <button onclick="mostrarTela('28-04-ferramentas')">(28/04/2025) - Ferramentas de Teste</button>
-    <button onclick="mostrarTela('28-04-carreira')">(28/04/2025) - Boas Práticas e Carreira</button>
-
-    <!-- Novas categorias com ferramentas detalhadas -->
-    <button onclick="mostrarTela('testes-unitarios-integracao')">🧪 Testes Unitários e de Integração</button>
-    <button onclick="mostrarTela('assertions')">🔍 Assertions</button>
-    <button onclick="mostrarTela('mocks-spies')">🕵️ Mocks e Spies</button>
-    <button onclick="mostrarTela('testes-assincronos')">⏱️ Testes Assíncronos</button>
-    <button onclick="mostrarTela('testes-componentes-ui')">🧪 Testes de Componentes (UI)</button>
-    <button onclick="mostrarTela('testes-end-to-end')">🌐 Testes End-to-End (Navegador Real)</button>
-    <button onclick="mostrarTela('suporte-testes')">📦 Suporte a Testes</button>
-  </div>
-
-  <!-- Painel direito -->
-  <div id="conteudo">
-    <!-- Telas antigas -->
-    <div class="tela" id="tela-29-04-teoria">
-      <h2>(29/04/2025) - Teoria Fundamentos de Teste de Sistemas</h2>
-      <p>Conteúdo teórico sobre os fundamentos dos testes de sistemas.</p>
-      <a href="#" target="_blank">Ver vídeo aula</a>
-    </div>
-
-    <div class="tela" id="tela-28-04-modelagem">
-      <h2>(28/04/2025) - Modelagem de Sistemas</h2>
-      <p>Introdução à modelagem de sistemas para testes.</p>
-      <a href="#" target="_blank">Ver vídeo aula</a>
-    </div>
-
-    <div class="tela" id="tela-28-04-scrum">
-      <h2>(28/04/2025) - Scrum</h2>
-      <p>Princípios do Scrum aplicados ao desenvolvimento e teste de software.</p>
-      <a href="#" target="_blank">Ver vídeo aula</a>
-    </div>
-
-    <div class="tela" id="tela-html-css-1">
-      <h2>HTML CSS 1</h2>
-      <p>Introdução básica a HTML e CSS para desenvolvimento web.</p>
-      <a href="https://vimeo.com/1090682476?share=copy" target="_blank">Ver vídeo aula</a>
-    </div>
-
-    <div class="tela" id="tela-29-04-unitarios">
-      <h2>(29/04/2025) - Testes Unitários</h2>
-      <p>Como realizar testes unitários eficazes em projetos.</p>
-      <a href="#" target="_blank">Ver vídeo aula</a>
-    </div>
-
-    <div class="tela" id="tela-selenium-js-1">
-      <h2>SELENIUM JAVASCRIPT 1</h2>
-      <p>Primeiros passos com Selenium usando JavaScript.</p>
-      <a href="https://drive.google.com/drive/folders/1KlSodjBM_EDbMpJz5-_qrcZRfiHTc8UA?usp=sharing" target="_blank">Ver vídeo aula</a>
-    </div>
-
-    <div class="tela" id="tela-selenium-js-2">
-      <h2>SELENIUM JAVASCRIPT 2</h2>
-      <p>Avançado em Selenium com JavaScript.</p>
-      <a href="https://docs.google.com/document/d/1Ef7iYP_aH5STHaTyONp6K7ZEX3XRm5IeFT-Z7yFbeVQ/edit?usp=sharing" target="_blank">Ver vídeo aula</a>
-    </div>
-
-    <div class="tela" id="tela-28-04-pokeapi">
-      <h2>(28/04/2025) - Integracao POKEAPI</h2>
-      <p>Integração de testes com a POKEAPI.</p>
-      <a href="#" target="_blank">Ver vídeo aula</a>
-    </div>
-
-    <div class="tela" id="tela-28-04-cypress">
-      <h2>(28/04/2025) - Cypress</h2>
-      <p>Ferramenta para testes end-to-end em aplicações web.</p>
-      <p>Simula ações reais dos usuários.</p>
-      <p>Ótima para testar interfaces e navegação.</p>
-      <p>Tem uma interface visual muito intuitiva.</p>
-      <p>Permite debugar testes facilmente no navegador.</p>
-      <a href="#" target="_blank">Ver vídeo aula</a>
-    </div>
-
-    <div class="tela" id="tela-28-04-seguranca">
-      <h2>(28/04/2025) - Teste Segurança</h2>
-      <p>Abordagens para testes de segurança em software.</p>
-      <a href="#" target="_blank">Ver vídeo aula</a>
-    </div>
-
-    <div class="tela" id="tela-teste-carga">
-      <h2>Teste Carga</h2>
-      <p>Testes de carga para medir performance e estabilidade.</p>
-      <a href="https://vimeo.com/1090711667?share=copy" target="_blank">Ver vídeo aula</a>
-    </div>
-
-    <div class="tela" id="tela-28-04-cucumber">
-      <h2>(28/04/2025) - Cucumber</h2>
-      <p>Framework para testes BDD com Cucumber.</p>
-      <a href="#" target="_blank">Ver vídeo aula</a>
-    </div>
-
-    <div class="tela" id="tela-28-04-jest">
-      <h2>(28/04/2025) - Jest</h2>
-      <p>Framework de testes em JavaScript criado pelo Facebook.</p>
-      <p>Indicado para testes unitários e testes de lógica.</p>
-      <p>Funciona bem com projetos em React.</p>
-      <p>Tem funções como mocks e spies.</p>
-      <p>Roda os testes rapidamente em terminal.</p>
-      <a href="#" target="_blank">Ver vídeo aula</a>
-    </div>
-
-    <div class="tela" id="tela-28-04-postman">
-      <h2>(28/04/2025) - Postman Automatizado</h2>
-      <p>Automatização de testes de API com Postman.</p>
-      <a href="#" target="_blank">Ver vídeo aula</a>
-    </div>
-
-    <div class="tela" id="tela-28-04-tecnicas">
-      <h2>(28/04/2025) - Técnicas de Teste</h2>
-      <p>Diversas técnicas para testes eficientes.</p>
-      <a href="#" target="_blank">Ver vídeo aula</a>
-    </div>
-
-    <div class="tela" id="tela-28-04-documentacao">
-      <h2>(28/04/2025) - Documentação e Planejamento</h2>
-      <p>Importância da documentação e planejamento para testes.</p>
-      <a href="#" target="_blank">Ver vídeo aula</a>
-    </div>
-
-    <div class="tela" id="tela-28-04-ferramentas">
-      <h2>(28/04/2025) - Ferramentas de Teste</h2>
-      <p>Visão geral das principais ferramentas de teste disponíveis.</p>
-      <a href="#" target="_blank">Ver vídeo aula</a>
-    </div>
-
-    <div class="tela" id="tela-28-04-carreira">
-      <h2>(28/04/2025) - Boas Práticas e Carreira</h2>
-      <p>Dicas para boas práticas e desenvolvimento de carreira em testes.</p>
-      <a href="#" target="_blank">Ver vídeo aula</a>
-    </div>
-
-    <!-- Novas categorias e ferramentas -->
-
-    <div class="tela" id="tela-testes-unitarios-integracao">
-      <h2>🧪 Testes Unitários e de Integração</h2>
-      <ul>
-        <li><b>Vitest</b> – Roda testes unitários e de integração com suporte a mocks e spies.</li>
-        <li><b>Jest</b> – Roda testes unitários, integração e snapshots.</li>
-        <li><b>Mocha</b> – Roda testes unitários e de integração (precisa de outras libs junto).</li>
-        <li><b>Chai</b> – Faz asserções (verificações) em testes, usado com Mocha.</li>
-      </ul>
-    </div>
-
-    <div class="tela" id="tela-assertions">
-      <h2>🔍 Assertions</h2>
-      <ul>
-        <li><b>expect (Vitest/Jest)</b> – Compara valores esperados com reais.</li>
-        <li><b>Chai (expect/should)</b> – Compara valores com mais opções e leitura natural.</li>
-      </ul>
-    </div>
-
-    <div class="tela" id="tela-mocks-spies">
-      <h2>🕵️ Mocks e Spies</h2>
-      <ul>
-        <li><b>vi.fn / vi.spyOn (Vitest)</b> – Cria funções falsas e monitora chamadas.</li>
-        <li><b>jest.fn / jest.spyOn (Jest)</b> – Igual ao vi.fn, mas no Jest.</li>
-        <li><b>Sinon</b> – Faz mocks, spies e stubs de forma completa.</li>
-      </ul>
-    </div>
-
-    <div class="tela" id="tela-testes-assincronos">
-      <h2>⏱️ Testes Assíncronos</h2>
-      <ul>
-        <li><b>async/await (JS)</b> – Espera código assíncrono em testes.</li>
-        <li><b>Promises (JS)</b> – Testa funções que retornam Promises.</li>
-        <li><b>done() (Vitest/Jest)</b> – Finaliza teste manualmente quando é assíncrono.</li>
-      </ul>
-    </div>
-
-    <div class="tela" id="tela-testes-componentes-ui">
-      <h2>🧪 Testes de Componentes (UI)</h2>
-      <ul>
-        <li><b>React Testing Library</b> – Testa componentes React simulando o uso real.</li>
-        <li><b>Vue Testing Library</b> – Testa componentes Vue simulando o uso real.</li>
-      </ul>
-    </div>
-
-    <div class="tela" id="tela-testes-end-to-end">
-      <h2>🌐 Testes End-to-End (Navegador Real)</h2>
-      <ul>
-        <li><b>Cypress</b> – Testa a aplicação rodando no navegador com cliques e inputs reais.</li>
-        <li><b>Playwright</b> – Alternativa ao Cypress para testes de navegação completos.</li>
-      </ul>
-    </div>
-
-    <div class="tela" id="tela-suporte-testes">
-      <h2>📦 Suporte a Testes</h2>
-      <ul>
-        <li><b>jsdom</b> – Simula DOM do navegador no Node.js (testes frontend).</li>
-        <li><b>c8</b> – Gera relatório de cobertura dos testes (quantos % foram testados).</li>
-        <li><b>Nock</b> – Simula respostas de APIs HTTP em testes backend.</li>
-      </ul>
-    </div>
-
-  </div>
-
-  <!-- JavaScript -->
   <script>
-    function mostrarTela(nome) {
-      // Esconde todas as telas
-      const telas = document.querySelectorAll('.tela')
-      telas.forEach(tela => tela.classList.remove('ativa'))
+    // Cores para variar os cards
+    const cores = ["blue", "green", "yellow", "red", "purple", "pink", "teal"];
 
-      // Mostra a tela clicada
-      const telaSelecionada = document.getElementById('tela-' + nome)
-      if (telaSelecionada) {
-        telaSelecionada.classList.add('ativa')
-      }
-    }
+    // Busca o arquivo cursos.json
+    fetch("cursos.json")
+      .then(response => response.json())
+      .then(cursos => {
+        const container = document.getElementById("cards");
 
-    // Opcional: mostrar a primeira tela por padrão ao carregar
-    mostrarTela('29-04-teoria')
+        cursos.forEach((curso, index) => {
+          const card = document.createElement("a");
+          card.className = `card ${cores[index % cores.length]}`;
+          card.href = curso.link;
+          card.target = "_blank";
+          card.innerHTML = `
+            <div class="title">${curso.nome}</div>
+            <div class="link">Acessar curso →</div>
+          `;
+          container.appendChild(card);
+        });
+      })
+      .catch(err => console.error("Erro ao carregar cursos.json:", err));
   </script>
-
 </body>
 </html>
