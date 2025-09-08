@@ -10,8 +10,8 @@
 { "nome": "(31/08/2025)-Cypress", "link": "#" },
 { "nome": "(31/08/2025)-Teste Segurança", "link": "#" },
 { "nome": "Teste Carga", "link": "https://vimeo.com/1090711667?share=copy" },
-{ "nome": "(31/08/2025)-Cucumber", "link": "#" },
-{ "nome": "(31/08/2025)-Jest", "link": "https://docs.google.com/document/d/1sABRF8jBFFLIFW8l7fd9hhI0FBPq54Mjo1NegIgEA9s/edit?usp=sharing" },
+{ "nome": "Cucumber", "link": "https://docs.google.com/document/d/1IRp4LVolj6YtpkPfQTG6DYJhCob67td5oslxv3ViyDM/edit?usp=sharing" },
+{ "nome": "Jest", "link": "https://docs.google.com/document/d/1sABRF8jBFFLIFW8l7fd9hhI0FBPq54Mjo1NegIgEA9s/edit?usp=sharing" },
 { "nome": "(31/08/2025)-Postman Automatizado", "link": "#" },
 { "nome": "(31/08/2025)-Técnicas de Teste", "link": "#" },
 { "nome": "(31/08/2025)-Documentação e Planejamento", "link": "#" },
@@ -21,5 +21,6 @@
 { "nome": "API Testing", "link": "#" },
 { "nome": "DevOps & QA", "link": "#" }
 ]
+
 
 
