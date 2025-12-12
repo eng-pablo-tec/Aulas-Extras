@@ -1,0 +1,30 @@
+/* Reset simples */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+
+/* Layout */
+body { background: #f4f6f8; color: #222; min-height: 100vh; display: flex; flex-direction: column; }
+header { padding: 20px; background: #0b5cff; color: white; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+header h1 { font-size: 20px; }
+.controls { display: flex; gap: 8px; align-items: center; }
+.controls input { padding: 8px 10px; border-radius: 6px; border: none; min-width: 220px; }
+.controls button { padding: 8px 12px; border-radius: 6px; border: none; cursor: pointer; background: #ffd166; color: #073b4c; font-weight: 600; }
+
+/* Main content */
+main { padding: 20px; flex: 1; }
+.status { margin-top: 12px; color: #555; }
+
+/* Grid de cartões */
+.grid { margin-top: 12px; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+.card { background: white; border-radius: 10px; padding: 14px; box-shadow: 0 6px 14px rgba(10,10,10,0.06); display: flex; flex-direction: column; gap: 8px; min-height: 110px; }
+.card .title { font-size: 14px; font-weight: 700; color: #073b4c; }
+.card .link { margin-top: auto; text-decoration: none; padding: 8px 10px; border-radius: 8px; border: 1px solid #e6e9ef; display: inline-block; font-size: 13px; }
+.card .link.empty { color: #999; border-style: dashed; }
+
+/* Rodapé */
+footer { padding: 12px 20px; background: #eef3fb; text-align: center; font-size: 13px; color: #333; }
+
+/* Responsividade */
+@media (max-width: 520px) {
+  header { flex-direction: column; align-items: stretch; gap: 8px; }
+  .controls { justify-content: stretch; }
+}

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cursos - Exibição JSON</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Cursos (JSON)</h1>
+    <div class="controls">
+      <input id="search" placeholder="Pesquisar por nome..." />
+      <button id="reload">Recarregar</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- área onde os cartões serão inseridos -->
+    <div id="grid" class="grid"></div>
+
+    <!-- mensagens de status / erro -->
+    <div id="status" class="status">Aguardando carregamento...</div>
+  </main>
+
+  <footer>
+    <small>Fonte do JSON: <a href="https://eng-pablo-tec.github.io/Aulas-Extras/cursos.json" target="_blank" rel="noopener">cursos.json</a></small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
